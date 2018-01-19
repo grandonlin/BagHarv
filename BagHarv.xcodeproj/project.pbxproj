@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		C15B4A31201044720033E495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A30201044720033E495 /* AppDelegate.swift */; };
-		C15B4A33201044720033E495 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A32201044720033E495 /* ViewController.swift */; };
+		C15B4A33201044720033E495 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A32201044720033E495 /* RegisterVC.swift */; };
 		C15B4A36201044720033E495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15B4A34201044720033E495 /* Main.storyboard */; };
 		C15B4A38201044720033E495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15B4A37201044720033E495 /* Assets.xcassets */; };
 		C15B4A3B201044720033E495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15B4A39201044720033E495 /* LaunchScreen.storyboard */; };
+		C15B4A48201044C50033E495 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A47201044C50033E495 /* Global.swift */; };
+		C15B4A4A201045260033E495 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A49201045260033E495 /* HomeVC.swift */; };
+		C15B4A4C2010453D0033E495 /* LogonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A4B2010453D0033E495 /* LogonVC.swift */; };
+		C15B4A4E201197720033E495 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A4D201197720033E495 /* SearchVC.swift */; };
+		C15B4A502011977F0033E495 /* LikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A4F2011977F0033E495 /* LikeVC.swift */; };
+		C15B4A522011978C0033E495 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A512011978C0033E495 /* MeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C15B4A2D201044720033E495 /* BagHarv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BagHarv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15B4A30201044720033E495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C15B4A32201044720033E495 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C15B4A32201044720033E495 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		C15B4A35201044720033E495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C15B4A37201044720033E495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C15B4A3A201044720033E495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C15B4A3C201044720033E495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C15B4A47201044C50033E495 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		C15B4A49201045260033E495 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		C15B4A4B2010453D0033E495 /* LogonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogonVC.swift; sourceTree = "<group>"; };
+		C15B4A4D201197720033E495 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		C15B4A4F2011977F0033E495 /* LikeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeVC.swift; sourceTree = "<group>"; };
+		C15B4A512011978C0033E495 /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,52 @@
 		C15B4A2F201044720033E495 /* BagHarv */ = {
 			isa = PBXGroup;
 			children = (
+				C15B4A46201044A70033E495 /* Global */,
+				C15B4A45201044A20033E495 /* Model */,
+				C15B4A442010449E0033E495 /* View */,
+				C15B4A43201044940033E495 /* Controller */,
 				C15B4A30201044720033E495 /* AppDelegate.swift */,
-				C15B4A32201044720033E495 /* ViewController.swift */,
 				C15B4A34201044720033E495 /* Main.storyboard */,
 				C15B4A37201044720033E495 /* Assets.xcassets */,
 				C15B4A39201044720033E495 /* LaunchScreen.storyboard */,
 				C15B4A3C201044720033E495 /* Info.plist */,
 			);
 			path = BagHarv;
+			sourceTree = "<group>";
+		};
+		C15B4A43201044940033E495 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C15B4A32201044720033E495 /* RegisterVC.swift */,
+				C15B4A49201045260033E495 /* HomeVC.swift */,
+				C15B4A4B2010453D0033E495 /* LogonVC.swift */,
+				C15B4A4D201197720033E495 /* SearchVC.swift */,
+				C15B4A4F2011977F0033E495 /* LikeVC.swift */,
+				C15B4A512011978C0033E495 /* MeVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C15B4A442010449E0033E495 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C15B4A45201044A20033E495 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C15B4A46201044A70033E495 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				C15B4A47201044C50033E495 /* Global.swift */,
+			);
+			name = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C15B4A33201044720033E495 /* ViewController.swift in Sources */,
+				C15B4A522011978C0033E495 /* MeVC.swift in Sources */,
+				C15B4A502011977F0033E495 /* LikeVC.swift in Sources */,
+				C15B4A4E201197720033E495 /* SearchVC.swift in Sources */,
+				C15B4A33201044720033E495 /* RegisterVC.swift in Sources */,
+				C15B4A4A201045260033E495 /* HomeVC.swift in Sources */,
 				C15B4A31201044720033E495 /* AppDelegate.swift in Sources */,
+				C15B4A4C2010453D0033E495 /* LogonVC.swift in Sources */,
+				C15B4A48201044C50033E495 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
