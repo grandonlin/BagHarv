@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37D6FD991E3C87A1D85929BF /* Pods_BagHarv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D52B81AC59DB2F75C23B95 /* Pods_BagHarv.framework */; };
 		C15B4A31201044720033E495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A30201044720033E495 /* AppDelegate.swift */; };
 		C15B4A33201044720033E495 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A32201044720033E495 /* RegisterVC.swift */; };
 		C15B4A36201044720033E495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15B4A34201044720033E495 /* Main.storyboard */; };
@@ -18,9 +19,11 @@
 		C15B4A4E201197720033E495 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A4D201197720033E495 /* SearchVC.swift */; };
 		C15B4A502011977F0033E495 /* LikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A4F2011977F0033E495 /* LikeVC.swift */; };
 		C15B4A522011978C0033E495 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A512011978C0033E495 /* MeVC.swift */; };
+		C15B4A54201214130033E495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C15B4A53201214130033E495 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72245736630F9CDA200EC049 /* Pods-BagHarv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BagHarv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BagHarv/Pods-BagHarv.debug.xcconfig"; sourceTree = "<group>"; };
 		C15B4A2D201044720033E495 /* BagHarv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BagHarv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15B4A30201044720033E495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C15B4A32201044720033E495 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -34,6 +37,9 @@
 		C15B4A4D201197720033E495 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		C15B4A4F2011977F0033E495 /* LikeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeVC.swift; sourceTree = "<group>"; };
 		C15B4A512011978C0033E495 /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		C15B4A53201214130033E495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6D52B81AC59DB2F75C23B95 /* Pods_BagHarv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BagHarv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2ED9C40FB015768A453FEB8 /* Pods-BagHarv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BagHarv.release.xcconfig"; path = "Pods/Target Support Files/Pods-BagHarv/Pods-BagHarv.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D6FD991E3C87A1D85929BF /* Pods_BagHarv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		974BE896F72941592AADB42A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72245736630F9CDA200EC049 /* Pods-BagHarv.debug.xcconfig */,
+				F2ED9C40FB015768A453FEB8 /* Pods-BagHarv.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C15B4A24201044720033E495 = {
 			isa = PBXGroup;
 			children = (
 				C15B4A2F201044720033E495 /* BagHarv */,
 				C15B4A2E201044720033E495 /* Products */,
+				974BE896F72941592AADB42A /* Pods */,
+				CDFA2057D8901CE63D1748C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +93,7 @@
 				C15B4A37201044720033E495 /* Assets.xcassets */,
 				C15B4A39201044720033E495 /* LaunchScreen.storyboard */,
 				C15B4A3C201044720033E495 /* Info.plist */,
+				C15B4A53201214130033E495 /* GoogleService-Info.plist */,
 			);
 			path = BagHarv;
 			sourceTree = "<group>";
@@ -114,6 +133,14 @@
 			name = Global;
 			sourceTree = "<group>";
 		};
+		CDFA2057D8901CE63D1748C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6D52B81AC59DB2F75C23B95 /* Pods_BagHarv.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +148,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C15B4A3F201044720033E495 /* Build configuration list for PBXNativeTarget "BagHarv" */;
 			buildPhases = (
+				C88C7FD2D67132179A7549B4 /* [CP] Check Pods Manifest.lock */,
 				C15B4A29201044720033E495 /* Sources */,
 				C15B4A2A201044720033E495 /* Frameworks */,
 				C15B4A2B201044720033E495 /* Resources */,
+				4DA2520522806E2D8DEE5C65 /* [CP] Embed Pods Frameworks */,
+				C7C4AB62675386A00B77D2DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,12 +205,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15B4A3B201044720033E495 /* LaunchScreen.storyboard in Resources */,
+				C15B4A54201214130033E495 /* GoogleService-Info.plist in Resources */,
 				C15B4A38201044720033E495 /* Assets.xcassets in Resources */,
 				C15B4A36201044720033E495 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DA2520522806E2D8DEE5C65 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BagHarv/Pods-BagHarv-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7C4AB62675386A00B77D2DC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BagHarv/Pods-BagHarv-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C88C7FD2D67132179A7549B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C15B4A29201044720033E495 /* Sources */ = {
@@ -315,6 +394,7 @@
 		};
 		C15B4A40201044720033E495 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72245736630F9CDA200EC049 /* Pods-BagHarv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UM5SX26C6N;
@@ -328,6 +408,7 @@
 		};
 		C15B4A41201044720033E495 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2ED9C40FB015768A453FEB8 /* Pods-BagHarv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UM5SX26C6N;
