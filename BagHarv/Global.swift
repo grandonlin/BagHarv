@@ -39,6 +39,14 @@ extension UIViewController {
         textField.leftView = imageView
         textField.leftViewMode = .always
     }
+    
+    func sendAlertWithoutHandler(alertTitle: String, alertMessage: String, actionTitle: [String]) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        for action in actionTitle {
+            alert.addAction(UIAlertAction(title: action, style: .default, handler: nil))
+        }
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UIImage {

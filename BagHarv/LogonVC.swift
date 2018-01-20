@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftKeychainWrapper
 
 class LogonVC: UIViewController {
     
@@ -15,6 +16,8 @@ class LogonVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     
+    var currentEmail: String!
+    var currentPassword: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +25,12 @@ class LogonVC: UIViewController {
     }
     
     func initialize() {
-        emailTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0)
-        passwordTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0)
         let allTextFields = [emailTextField, passwordTextField]
         configureTextFieldWithImage(textFields: allTextFields as! [UITextField])
         
     }
     
-    @IBAction func registerBtnPressed(_ sender: UIButton) {
+    @IBAction func loginBtnPressed(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
@@ -43,22 +44,39 @@ class LogonVC: UIViewController {
                     } else if error.debugDescription.contains("There is no user record") {
                         self.sendAlertWithoutHandler(alertTitle: "Login Fail", alertMessage: "The email address entered does not exist. Please enter your email address again.", actionTitle: ["OK"])
                     } else {
-                        self.sendAlertWithoutHandler(alertTitle: "Login Fail", alertMessage: "New Learner? Sign up to enjoy the jurney.", actionTitle: ["OK"])
+                        self.sendAlertWithoutHandler(alertTitle: "Login Fail", alertMessage: "New to BagHarv? Sign up to enjoy the jurney.", actionTitle: ["OK"])
                     }
                 }
             })
         }
     }
     
+    @IBAction func signUpBtnPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "RegisterVC", sender: nil)
+    }
+    
     @IBAction func forgetPasswordBtnPressed(_ sender: UIButton) {
+        if let email = emailTextField.text {
+            if email != "" {
+                Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+                    if error.debugDescription.contains("There is no user") {
+                        self.sendAlertWithoutHandler(alertTitle: "Forget Password", alertMessage: "There is no user record corresponding to the email address. Please confirm your email address.", actionTitle: ["Cancel"])
+                    } else {
+                        self.sendAlertWithoutHandler(alertTitle: "Reset Email", alertMessage: "An email has been sent to the email address to reset your password.", actionTitle: ["OK"])
+                    }
+                })
+            } else {
+                sendAlertWithoutHandler(alertTitle: "Email Required", alertMessage: "Please enter your email address", actionTitle: ["OK"])
+            }
+        }
+        
+
     }
     
     func completeSignIn(id: String) {
         KeychainWrapper.standard.set(id, forKey: KEY_UID)
         DataService.ds.uid = KeychainWrapper.standard.string(forKey: KEY_UID)
-        activityIndicator.stopAnimating()
-        //        loadingView.hide()
-        performSegue(withIdentifier: "MainVC", sender: nil)
+        performSegue(withIdentifier: "HomeVC", sender: nil)
     }
     
     func assignKeychainWrapperValueForEmailAndPassword(email: String, password: String) {

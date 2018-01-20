@@ -13,5 +13,6 @@ target 'BagHarv' do
   pod 'FBSDKLoginKit'
   pod 'SZTextView'
   pod 'SwiftKeychainWrapper'
+  pod 'IQKeyboardManagerSwift'
 
 end

@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BagHarv.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F2DCB931280479DA4E670BD76C486E3</key>
+		<key>158A27F64214319AD95BD4CF3F7E3D71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32A7E7DC0205376503E2443C3F53CBD6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +83,11 @@
 			<true/>
 		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98B9BBC7F24659128E494FBBB119C8DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C438646539272DF20B6FDA71C0A483A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CE16D3499B2B0F9AE6ED28B33C755E90</key>
+		<key>C235F77E101E742652CCF98FFDFA5182</key>
 		<dict>
 			<key>primary</key>
 			<true/>
