@@ -22,6 +22,9 @@
 		C15B4A54201214130033E495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C15B4A53201214130033E495 /* GoogleService-Info.plist */; };
 		C1EFFF2920121B8D00D963C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EFFF2820121B8D00D963C4 /* Constants.swift */; };
 		C1EFFF2C20121BCD00D963C4 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EFFF2B20121BCD00D963C4 /* DataService.swift */; };
+		C1EFFF2E201607C300D963C4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EFFF2D201607C300D963C4 /* Post.swift */; };
+		C1EFFF302016099700D963C4 /* ArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EFFF2F2016099700D963C4 /* ArticleVC.swift */; };
+		C1EFFF3220160A3000D963C4 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EFFF3120160A3000D963C4 /* HomeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		C15B4A53201214130033E495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1EFFF2820121B8D00D963C4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C1EFFF2B20121BCD00D963C4 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		C1EFFF2D201607C300D963C4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		C1EFFF2F2016099700D963C4 /* ArticleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleVC.swift; sourceTree = "<group>"; };
+		C1EFFF3120160A3000D963C4 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		C6D52B81AC59DB2F75C23B95 /* Pods_BagHarv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BagHarv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2ED9C40FB015768A453FEB8 /* Pods-BagHarv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BagHarv.release.xcconfig"; path = "Pods/Target Support Files/Pods-BagHarv/Pods-BagHarv.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,11 +113,12 @@
 			isa = PBXGroup;
 			children = (
 				C15B4A32201044720033E495 /* RegisterVC.swift */,
-				C15B4A49201045260033E495 /* HomeVC.swift */,
 				C15B4A4B2010453D0033E495 /* LogonVC.swift */,
+				C15B4A49201045260033E495 /* HomeVC.swift */,
 				C15B4A4D201197720033E495 /* SearchVC.swift */,
 				C15B4A4F2011977F0033E495 /* LikeVC.swift */,
 				C15B4A512011978C0033E495 /* MeVC.swift */,
+				C1EFFF2F2016099700D963C4 /* ArticleVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 		C15B4A442010449E0033E495 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1EFFF3120160A3000D963C4 /* HomeCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 		C15B4A45201044A20033E495 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1EFFF2D201607C300D963C4 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -281,11 +290,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15B4A522011978C0033E495 /* MeVC.swift in Sources */,
+				C1EFFF2E201607C300D963C4 /* Post.swift in Sources */,
 				C15B4A502011977F0033E495 /* LikeVC.swift in Sources */,
 				C15B4A4E201197720033E495 /* SearchVC.swift in Sources */,
 				C15B4A33201044720033E495 /* RegisterVC.swift in Sources */,
 				C15B4A4A201045260033E495 /* HomeVC.swift in Sources */,
 				C15B4A31201044720033E495 /* AppDelegate.swift in Sources */,
+				C1EFFF3220160A3000D963C4 /* HomeCell.swift in Sources */,
+				C1EFFF302016099700D963C4 /* ArticleVC.swift in Sources */,
 				C15B4A4C2010453D0033E495 /* LogonVC.swift in Sources */,
 				C15B4A48201044C50033E495 /* Global.swift in Sources */,
 				C1EFFF2920121B8D00D963C4 /* Constants.swift in Sources */,

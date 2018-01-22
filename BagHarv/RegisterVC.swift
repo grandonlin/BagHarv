@@ -43,18 +43,18 @@ class RegisterVC: UIViewController {
             return
         }
         
-        passwordValidation(password: password)
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-            if let error = error {
-                self.sendAlertWithoutHandler(alertTitle: "Error", alertMessage: error.localizedDescription, actionTitle: ["OK"])
-            } else {
-                print("Grandon: successfully create a new user")
-                let defaultProfileImgUrl = DEFAULT_PROFILE_IMG_URL
-                let username = self.userName
-                let profileData = ["userName": username, "profileImgUrl": defaultProfileImgUrl, "gender": "", "recentCompletionImgUrl": RECENT_COMPLETION_IMG_URL]
-                if let user = user {
-                    print("User.uid is: \(user.uid)")
-                    self.completeSignIn(id: user.uid, profileData: profileData as! Dictionary<String, String>)
+        guard let confirmPassword = confirmPasswordTextField.text, confirmPassword != "" else {
+            sendAlertWithoutHandler(alertTitle: "Missing Password", alertMessage: "Please enter your password", actionTitle: ["Cancel"])
+            return
+        }
+        
+        if passwordValidationPassed(password: password, confirmPassword: confirmPassword) {
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                if let error = error {
+                    self.sendAlertWithoutHandler(alertTitle: "Error", alertMessage: error.localizedDescription, actionTitle: ["OK"])
+                } else {
+                    print("Grandon: successfully create a new user")
+                    self.performSegue(withIdentifier: "HomeVC", sender: nil)
                     Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
                         if error == nil {
                             print("Grandon: sent email verification")
@@ -63,19 +63,26 @@ class RegisterVC: UIViewController {
                         }
                     })
                 }
-            }
-        })
-        performSegue(withIdentifier: "HomeVC", sender: nil)
+            })
+        }
+        
+        
     }
     
     @IBAction func signInBtnPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func passwordValidation(password: String) {
+    func passwordValidationPassed(password: String, confirmPassword: String) -> Bool {
+        var passwordPass = true
         if password.characters.count < 8 {
             sendAlertWithoutHandler(alertTitle: "Password Error", alertMessage: "Password must be at least 8 characters. Please re-enter.", actionTitle: ["OK"])
+            passwordPass = false
+        } else if password != confirmPassword {
+            sendAlertWithoutHandler(alertTitle: "Password Error", alertMessage: "Password and confirm password must be the same", actionTitle: ["Cancel"])
+            passwordPass = false
         }
+        return passwordPass
     }
 }
 

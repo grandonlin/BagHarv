@@ -8,6 +8,10 @@
 
 import UIKit
 
+var posts = [Post]()
+let post1 = Post(title: "Zelda Faux-Leather Wristlet Clutch", displayImage: UIImage(named: "Zelda Faux-Leather Wristlet Clutch")!)
+
+
 extension UIView {
     
     func heightCircle() {
