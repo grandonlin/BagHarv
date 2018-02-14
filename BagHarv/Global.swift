@@ -9,10 +9,17 @@
 import UIKit
 
 var posts = [Post]()
-let post1 = Post(title: "Zelda Faux-Leather Wristlet Clutch", displayImage: UIImage(named: "Zelda Faux-Leather Wristlet Clutch")!)
-
+//let post1 = Post(title: "Zelda Faux-Leather Wristlet Clutch", displayImage: UIImage(named: "Zelda Faux-Leather Wristlet Clutch")!)
+//let post2 = Post(title: "MELISSA TOTE", displayImage: UIImage(named: "MELISSA TOTE")!)
+var currentUser: User!
 
 extension UIView {
+    func circleView() {
+        layer.cornerRadius = self.frame.width / 2
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+        
+    }
     
     func heightCircle() {
         layer.cornerRadius = self.frame.height / 2
@@ -72,3 +79,14 @@ extension UIImage {
         return imageName
     }
 }
+
+extension NSDate {
+    
+    func fullTimeCreated() -> String {
+        let calendar = Calendar.current
+        let df = DateFormatter()
+        
+        return df.string(from: self as Date)
+    }
+}
+

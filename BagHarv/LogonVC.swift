@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 import SwiftKeychainWrapper
 
 class LogonVC: UIViewController {
@@ -22,6 +22,12 @@ class LogonVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        
+        if Auth.auth().currentUser != nil {
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (timer) in
+                self.performSegue(withIdentifier: "HomeVC", sender: nil)
+            })
+        }
     }
     
     func initialize() {
@@ -35,6 +41,7 @@ class LogonVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
                     if let user = user {
+                        
                         self.completeSignIn(id: user.uid)
                     }
                 } else {

@@ -13,7 +13,6 @@ import SwiftKeychainWrapper
 let DB_BASE = Database.database().reference()
 let STORAGE_BASE = Storage.storage().reference()
 
-var userName: String!
 
 class DataService {
     
@@ -22,13 +21,14 @@ class DataService {
     
     //DB references
     private var _REF_BASE = DB_BASE
-    private var _REF_USERS = DB_BASE.child("users")
-    private var _REF_POSTS = DB_BASE.child("posts")
+    private var _REF_USERS = DB_BASE.child("Users")
+    private var _REF_POSTS = DB_BASE.child("Posts")
+    private var _REF_DISCUSSIONS = DB_BASE.child("Discussions")
     //private var _REF_PROFILE = DB_BASE.child("profile")
     
     //STORAGE references
-    private var _STORAGE_PROFILE_IMAGE = STORAGE_BASE.child("profile_pic")
-    private var _POST_IMAGE = STORAGE_BASE.child("post_pic")
+    private var _STORAGE_USER_IMAGE = STORAGE_BASE.child("Users")
+    private var _POST_IMAGE = STORAGE_BASE.child("Posts")
     private var _STEP_IMAGE = STORAGE_BASE.child("step_pic")
     
     var REF_BASE: DatabaseReference {
@@ -56,8 +56,12 @@ class DataService {
         return _REF_POSTS
     }
     
-    var STORAGE_PROFILE_IMAGE: StorageReference {
-        return _STORAGE_PROFILE_IMAGE
+    var REF_DISCUSSIONS: DatabaseReference {
+        return _REF_DISCUSSIONS
+    }
+    
+    var STORAGE_USER_IMAGE: StorageReference {
+        return _STORAGE_USER_IMAGE
     }
     
     var POST_IMAGE: StorageReference {
@@ -68,10 +72,8 @@ class DataService {
         return _STEP_IMAGE
     }
     
-    func createFirebaseDBUser(uid: String, profileData: Dictionary<String, String>) {
-        //        let profileKey = REF_USERS.child(uid).child("profile").childByAutoId().key
-        //        REF_USERS.child(uid).child("profile").child("\(profileKey)").updateChildValues(profileData)
-        REF_USERS.child(uid).child("profile").updateChildValues(profileData)
+    func createFirebaseDBUser(uid: String, userData: Dictionary<String, Any>) {
+        REF_USERS.child(uid).updateChildValues(userData)
         
         
     }

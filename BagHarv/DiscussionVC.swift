@@ -1,5 +1,5 @@
 //
-//  ArticleVC.swift
+//  DiscussionVC.swift
 //  BagHarv
 //
 //  Created by Grandon Lin on 2018-01-22.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArticleVC: UIViewController {
+class DiscussionVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

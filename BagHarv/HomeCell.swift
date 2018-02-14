@@ -12,7 +12,6 @@ class HomeCell: UITableViewCell {
 
 
     @IBOutlet weak var articleTitle: UILabel!
-    @IBOutlet weak var articleDisplayImage: UIImageView!
     
     
     override func awakeFromNib() {
@@ -20,9 +19,8 @@ class HomeCell: UITableViewCell {
         // Initialization code
     }
 
-    func configureCell(post: Post) {
-        articleTitle.text = post.title
-        articleDisplayImage.image = post.displayImage
+    func configureCell(discussion: Discussion) {
+        articleTitle.text = discussion.topic
     }
 
 
