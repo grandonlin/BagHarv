@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 class PostDetailCell: UITableViewCell {
 
 
     @IBOutlet weak var detailImageView: UIImageView!
-    @IBOutlet weak var imageDescriptionTextView: UITextView!
+    @IBOutlet weak var imageDescriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    func configureCell(post: Post) {
+    func configureCell(postComponent: PostComponent) {
         
+        detailImageView.image = postComponent.componentImage
+        imageDescriptionLabel.text = postComponent.componentDescription
     }
     
 }

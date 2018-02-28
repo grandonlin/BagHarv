@@ -13,6 +13,7 @@ public class Discussion {
     private var _discussionID: String!
     private var _topic: String!
     private var _body: String!
+    private var _comments: [Comment]!
     
     init() {
         _discussionID = ""
@@ -50,6 +51,15 @@ public class Discussion {
         }
         set {
             _body = newValue
+        }
+    }
+    
+    var comments: [Comment] {
+        get {
+            return _comments
+        }
+        set {
+            _comments = newValue
         }
     }
     

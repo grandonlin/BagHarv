@@ -10,8 +10,7 @@ import UIKit
 
 class PostScenarioCell: UITableViewCell {
 
-    @IBOutlet weak var scenarioDescriptionTextView: UITextView!
-    
+    @IBOutlet weak var scenarioDescriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +18,7 @@ class PostScenarioCell: UITableViewCell {
     }
 
     func configureCell(post: Post) {
-        scenarioDescriptionTextView.text = post.postScenario
+        scenarioDescriptionLabel.text = post.postScenario
     }
 
 }

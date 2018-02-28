@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		37D6FD991E3C87A1D85929BF /* Pods_BagHarv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D52B81AC59DB2F75C23B95 /* Pods_BagHarv.framework */; };
 		C10283E42033DD50006FE67B /* PostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10283E32033DD50006FE67B /* PostDetailCell.swift */; };
+		C10283E6203527C9006FE67B /* PostComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10283E5203527C9006FE67B /* PostComponent.swift */; };
+		C10283E820427963006FE67B /* DiscussionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10283E720427963006FE67B /* DiscussionDetailTableViewCell.swift */; };
+		C10283EA2042A94F006FE67B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10283E92042A94F006FE67B /* Comment.swift */; };
 		C15B4A31201044720033E495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A30201044720033E495 /* AppDelegate.swift */; };
 		C15B4A33201044720033E495 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B4A32201044720033E495 /* RegisterVC.swift */; };
 		C15B4A36201044720033E495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15B4A34201044720033E495 /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		72245736630F9CDA200EC049 /* Pods-BagHarv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BagHarv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BagHarv/Pods-BagHarv.debug.xcconfig"; sourceTree = "<group>"; };
 		C10283E32033DD50006FE67B /* PostDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailCell.swift; sourceTree = "<group>"; };
+		C10283E5203527C9006FE67B /* PostComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostComponent.swift; sourceTree = "<group>"; };
+		C10283E720427963006FE67B /* DiscussionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		C10283E92042A94F006FE67B /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		C15B4A2D201044720033E495 /* BagHarv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BagHarv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15B4A30201044720033E495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C15B4A32201044720033E495 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 				C1F11B4A20263FCA00526502 /* HomeCollectionViewCell.swift */,
 				C1F11B502033CF4500526502 /* PostScenarioCell.swift */,
 				C10283E32033DD50006FE67B /* PostDetailCell.swift */,
+				C10283E720427963006FE67B /* DiscussionDetailTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -153,6 +160,8 @@
 				C1EFFF2D201607C300D963C4 /* Post.swift */,
 				C1AD2250201F467F0096547D /* User.swift */,
 				C1F11B4C203126D000526502 /* Discussion.swift */,
+				C10283E5203527C9006FE67B /* PostComponent.swift */,
+				C10283E92042A94F006FE67B /* Comment.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -310,10 +319,13 @@
 				C10283E42033DD50006FE67B /* PostDetailCell.swift in Sources */,
 				C15B4A522011978C0033E495 /* MeVC.swift in Sources */,
 				C1EFFF2E201607C300D963C4 /* Post.swift in Sources */,
+				C10283E6203527C9006FE67B /* PostComponent.swift in Sources */,
 				C15B4A502011977F0033E495 /* LikeVC.swift in Sources */,
 				C15B4A4E201197720033E495 /* SearchVC.swift in Sources */,
+				C10283E820427963006FE67B /* DiscussionDetailTableViewCell.swift in Sources */,
 				C15B4A33201044720033E495 /* RegisterVC.swift in Sources */,
 				C1F11B4B20263FCA00526502 /* HomeCollectionViewCell.swift in Sources */,
+				C10283EA2042A94F006FE67B /* Comment.swift in Sources */,
 				C15B4A4A201045260033E495 /* HomeVC.swift in Sources */,
 				C1AD2251201F467F0096547D /* User.swift in Sources */,
 				C15B4A31201044720033E495 /* AppDelegate.swift in Sources */,

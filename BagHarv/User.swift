@@ -14,6 +14,7 @@ class User {
     private var _userId: String!
     private var _userName: String!
     private var _profileImgUrl: String!
+    private var _posts: [Post]!
     
     init(userId: String) {
         self._userId = userId
@@ -60,5 +61,16 @@ class User {
         }
         
     }
+    
+    var posts: [Post] {
+        get {
+            return _posts
+        }
+        set {
+            _posts = newValue
+        }
+    }
+    
+    
     
 }

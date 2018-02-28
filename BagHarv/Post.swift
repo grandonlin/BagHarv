@@ -15,10 +15,8 @@ class Post {
     private var _articleBody: String!
     private var _created: String!
     private var _displayImageURL: String!
-    private var _headImageURLs: [String]!
-    private var _bodyImageURLs: [String]!
-    private var _bottomImageURLs: [String]!
     private var _postScenario: String!
+    private var _postComponents: [PostComponent]!
     
     init()  {
         self._postID = ""
@@ -26,21 +24,16 @@ class Post {
         self._articleBody = ""
         self._created = ""
         self._displayImageURL = ""
-        self._headImageURLs = [String]()
-        self._bodyImageURLs = [String]()
-        self._bottomImageURLs = [String]()
         self._postScenario = ""
+        self._postComponents = [PostComponent]()
     }
     
-    init(postID: String, title: String, created: String, displayImageURL: String, headImageURLs: [String], bodyImageURLs: [String], bottomImageURLs: [String], postScenario: String) {
+    init(postID: String, title: String, created: String, postComponents: [PostComponent], postScenario: String) {
         self._postID = postID
         self._title = title
         self._created = created
-        self._displayImageURL = displayImageURL
-        self._headImageURLs = headImageURLs
-        self._bodyImageURLs = bodyImageURLs
-        self._bottomImageURLs = bottomImageURLs
         self._postScenario = postScenario
+        self._postComponents = postComponents
     }
     
     var postID: String {
@@ -88,39 +81,21 @@ class Post {
         }
     }
     
-    var headImageURLs: [String] {
-        get {
-            return _headImageURLs
-        }
-        set {
-            _headImageURLs = newValue
-        }
-    }
-    
-    var bodyImageURLs: [String] {
-        get {
-            return _bodyImageURLs
-        }
-        set {
-            _bodyImageURLs = newValue
-        }
-    }
-    
-    var bottomImageURLs: [String] {
-        get {
-            return _bottomImageURLs
-        }
-        set {
-            _bottomImageURLs = newValue
-        }
-    }
-    
     var postScenario: String {
         get {
             return _postScenario
         }
         set {
             _postScenario = newValue
+        }
+    }
+    
+    var postComponents: [PostComponent] {
+        get {
+            return _postComponents
+        }
+        set {
+            _postComponents = newValue
         }
     }
 }

@@ -17,7 +17,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    var post = Post()
     var discussions = [Discussion]()
+    var discussion = Discussion()
+    var postComponents = [PostComponent]()
+    let postRef = DataService.ds.REF_POSTS
+    let discussionRef = DataService.ds.REF_DISCUSSIONS
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +41,26 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.global().async {
-            self.fetchPostData()
-            self.fetchDiscussionData()
+            
             }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        postRef.removeObserver(withHandle: 0)
+        discussionRef.removeObserver(withHandle: 0)
     }
     
     func initialize() {
         collectionView.isPagingEnabled = true
-        
+        DispatchQueue.global().async {
+            self.fetchPostData()
+            self.fetchDiscussionData()
+        }
     }
 
     func fetchPostData() {
         posts.removeAll()
-        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+        postRef.observe(.value, with: { (snapshot) in
             let currentSystemDate = Date()
             let calendar = Calendar.current
             let year = calendar.component(.year, from: currentSystemDate)
@@ -85,6 +98,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
                                                 let post = Post()
                                                 if let postID = postData["Post ID"] as? String {
                                                     post.postID = postID
+                                                    print("HomeVC: this post ID is \(post.postID)")
                                                 }
                                                 if let title = postData["Title"] as? String {
                                                     post.title = title
@@ -95,34 +109,47 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
                                                 if let displayImageUrl = postData["Display Image URL"] as? String {
                                                     post.displayImageURL = displayImageUrl
                                                 }
-                                                if let headImageURLData = postData["Head Image URL"] as? Dictionary<String, Any> {
-                                                    var headImageURLs = [String]()
-                                                    for headImageURLValue in headImageURLData.values {
-                                                        headImageURLs.append(headImageURLValue as! String)
-                                                    }
-                                                    post.headImageURLs = headImageURLs
+                                                if let postScenario = postData["Post Scenario"] as? String {
+                                                    post.postScenario = postScenario
                                                 }
-                                                if let bodyImageURLData = postData["Body Image URL"] as? Dictionary<String, Any> {
-                                                    var bodyImageURLs = [String]()
-                                                    for bodyImageURLValue in bodyImageURLData.values {
-                                                        bodyImageURLs.append(bodyImageURLValue as! String)
+                                                if let postComponentsData = postData["Post Components"] as? Dictionary<String, Any> {
+                                                    let componentsCount = postComponentsData.count
+                                                    var componentID: String!
+                                                    
+                                                    for i in 1...componentsCount {
+                                                        if i < 10 {
+                                                            componentID = "0\(i)"
+                                                        } else {
+                                                            componentID = "\(i)"
+                                                        }
+                                                        if let componentData = postComponentsData[componentID] as? Dictionary<String, String> {
+                                                            if let componentDesc = componentData["Component Description"], let componentImageURL = componentData["Component Image URL"] {
+                                                                let ref = Storage.storage().reference(forURL: componentImageURL)
+                                                                ref.getData(maxSize: 1024 * 1024, completion: { (data, error) in
+                                                                    if error != nil {
+                                                                        print("Grandon(ProfileVC): the error is \(error?.localizedDescription)")
+                                                                    } else {
+                                                                        let img = UIImage(data: data!)
+                                                                        let postComponent = PostComponent(componentImage: img!, componentDescription: componentDesc)
+                                                                        self.postComponents.append(postComponent)
+                                                                        post.postComponents = self.postComponents
+                                                                    }
+                                                                })
+                                                            }
+                                                        }
+                                                        print("Now the postComponents array has \(self.postComponents.count) records")
                                                     }
-                                                    post.bodyImageURLs = bodyImageURLs
                                                 }
-                                                if let bottomImageURLData = postData["Bottom Image URL"] as? Dictionary<String, Any> {
-                                                    var bottomImageURLs = [String]()
-                                                    for bottomImageURLValue in bottomImageURLData.values {
-                                                        bottomImageURLs.append(bottomImageURLValue as! String)
-                                                    }
-                                                    post.bottomImageURLs = bottomImageURLs
-                                                }
+                                                
                                                 if self.posts.count < 10 {
                                                     self.posts.append(post)
-                                                    
+                                                    self.pageControl.numberOfPages = self.posts.count
                                                 } else {
+                                                    self.pageControl.numberOfPages = self.posts.count
                                                     break
                                                 }
-                                                self.pageControl.numberOfPages = self.posts.count
+                                                
+                                                
                                             }
                                         }
                                     }
@@ -140,7 +167,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
     
     func fetchDiscussionData() {
         discussions.removeAll()
-        DataService.ds.REF_DISCUSSIONS.observe(.value, with: { (snapshot) in
+        discussionRef.observe(.value, with: { (snapshot) in
             let currentSystemDate = Date()
             let calendar = Calendar.current
             let year = calendar.component(.year, from: currentSystemDate)
@@ -164,10 +191,10 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
                                         dayToBeLooped = "\(daysDifference)"
                                     }
                                     if let dayData = MonthData[dayToBeLooped] as? Dictionary<String, Any> {
-                                        let totalDiscussionss = dayData.count
-                                        for k in 0..<totalDiscussionss {
+                                        let totalDiscussions = dayData.count
+                                        for k in 0..<totalDiscussions {
                                             var discussionToBeLooped: String!
-                                            let discussionCount = totalDiscussionss - k
+                                            let discussionCount = totalDiscussions - k
                                             if discussionCount < 10 {
                                                 discussionToBeLooped = "0\(discussionCount)"
                                             } else {
@@ -178,8 +205,29 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
                                                 if let topic = discussionData["Topic"] as? String {
                                                     discussion.topic = topic
                                                 }
+                                                if let body = discussionData["Body"] as? String {
+                                                    discussion.body = body
+                                                }
+                                                if let commentData = discussionData["Comments"] as? Dictionary<String, Any> {
+                                                    var comments = [Comment]()
+                                                    let commentCount = commentData.count
+                                                    for i in 1...commentCount {
+                                                        var commentNumber: String
+                                                        if i < 10 {
+                                                            commentNumber = "0\(i)"
+                                                        } else {
+                                                            commentNumber = "\(i)"
+                                                        }
+                                                        if let commentDisc = commentData[commentNumber] as? Dictionary<String, Any> {
+                                                            let message = commentDisc["Message"] as! String
+                                                            let comment = Comment(content: message)
+                                                            comments.append(comment)
+                                                        }
+                                                    }
+                                                   discussion.comments = comments
+                                                }
                                                 if self.discussions.count < 10 {
-                                                    self.discussions.append(discussion)
+                                                    self.discussions.append(self.discussion)
                                                 } else {
                                                     break
                                                 }
@@ -207,7 +255,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let post = posts[indexPath.row]
+        post = posts[indexPath.item]
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as? HomeCollectionViewCell {
             cell.configureCell(post: post)
             let layout = self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
@@ -217,8 +265,14 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
         return UICollectionViewCell()
     }
     
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(x / view.frame.width)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "PostDetailVC", sender: nil)
+        post = posts[indexPath.item]
+        performSegue(withIdentifier: "PostDetailVC", sender: post)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -247,7 +301,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "DiscussionVC", sender: nil)
+        discussion = discussions[indexPath.row]
+        performSegue(withIdentifier: "DiscussionVC", sender: discussion)
     }
     
     @IBAction func logoutBtnPressed(_ sender: UIBarButtonItem) {
@@ -257,6 +312,16 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICo
             performSegue(withIdentifier: "LogonVC", sender: nil)
         } catch let err as NSError {
             print(err.debugDescription)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PostDetailVC {
+            destination.post = post
+            print("HomeVC: \(post.postID)")
+        }
+        if let destination = segue.destination as? DiscussionVC {
+            destination.discussion = discussion
         }
     }
     
